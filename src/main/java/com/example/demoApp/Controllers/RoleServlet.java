@@ -1,4 +1,4 @@
-package com.example.demoApp.Controller;
+package com.example.demoApp.Controllers;
 
 import java.io.*;
 import javax.servlet.ServletException;
