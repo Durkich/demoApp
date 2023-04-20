@@ -1,23 +1,22 @@
 package com.example.demoApp.Domain;
 
-import java.util.Date;
 
 public class Curriculum {
     private Long id;
-    private Date academicYear;
+    private int academicYear;
     private String speciality;
     private String quialification;
     private String formEducation;
     private String nameCircullum;
-    private String course;
+    private int course;
 
     public Curriculum(Long id,
-                      Date academicYear,
+                      int academicYear,
                       String speciality,
                       String quialification,
                       String formEducation,
                       String nameCircullum,
-                      String course) {
+                      int course) {
         this.id = id;
         this.academicYear = academicYear;
         this.speciality = speciality;
@@ -27,11 +26,11 @@ public class Curriculum {
         this.course = course;
     }
 
-    public Date getAcademicYear() {
+    public int getAcademicYear() {
         return academicYear;
     }
 
-    public void setAcademicYear(Date academicYear) {
+    public void setAcademicYear(int academicYear) {
         this.academicYear = academicYear;
     }
 
@@ -67,11 +66,11 @@ public class Curriculum {
         this.nameCircullum = nameCircullum;
     }
 
-    public String getCourse() {
+    public int getCourse() {
         return course;
     }
 
-    public void setCourse(String course) {
+    public void setCourse(int course) {
         this.course = course;
     }
 

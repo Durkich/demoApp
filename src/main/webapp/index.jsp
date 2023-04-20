@@ -1,5 +1,6 @@
 <%@page language="java" contentType="text/html"
         pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,10 +15,10 @@
 <div id="main">
     <h2>Функции системы</h2>
     <ul>
-        <li><a href="#">Учебный план</a>
-        <li><a href="#">Дисциплина</a>
-        <li><a href="#">Кафедра</a>
-        <li><a href="#">Факультет</a>
+        <li><a href="/Curriculum">Учебный план</a>
+        <li><a href="/Discipline">Дисциплина</a>
+        <li><a href="/Chair">Кафедра</a>
+        <li><a href="/Faculty">Факультет</a>
     </ul>
 </div>
 <jsp:include page="jspf/footer.jsp" />

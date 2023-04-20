@@ -1,6 +1,8 @@
 package com.example.demoApp.Domain;
 
 public class Discipline {
+
+
     private Long id;
     private Long idChair;
     private Long idCirriculum;
@@ -10,8 +12,22 @@ public class Discipline {
     private int lecture;
     private int laboratory;
     private int practical;
+    private String Examen;
+    private String SetOff;
 
-    public Discipline(Long id, Long idChair, Long idCirriculum, String nameDiscipline, int course, int semester, int lecture, int laboratory, int practical) {
+    public Discipline(Long id, String nameDiscipline, int course, int semester, int lecture, int laboratory, int practical, String examen, String setOff) {
+        this.id = id;
+        this.nameDiscipline = nameDiscipline;
+        this.course = course;
+        this.semester = semester;
+        this.lecture = lecture;
+        this.laboratory = laboratory;
+        this.practical = practical;
+        Examen = examen;
+        SetOff = setOff;
+    }
+
+    public Discipline(Long id, Long idChair, Long idCirriculum, String nameDiscipline, int course, int semester, int lecture, int laboratory, int practical, String examen, String setOff) {
         this.id = id;
         this.idChair = idChair;
         this.idCirriculum = idCirriculum;
@@ -21,7 +37,10 @@ public class Discipline {
         this.lecture = lecture;
         this.laboratory = laboratory;
         this.practical = practical;
+        Examen = examen;
+        SetOff = setOff;
     }
+
 
     public Long getId() {
         return id;
@@ -95,6 +114,23 @@ public class Discipline {
         this.practical = practical;
     }
 
+
+    public String getExamen() {
+        return Examen;
+    }
+
+    public void setExamen(String examen) {
+        Examen = examen;
+    }
+
+    public String getSetOff() {
+        return SetOff;
+    }
+
+    public void setSetOff(String setOff) {
+        SetOff = setOff;
+    }
+
     @Override
     public String toString() {
         return "Discipline{" +
@@ -107,12 +143,10 @@ public class Discipline {
                 ", lecture=" + lecture +
                 ", laboratory=" + laboratory +
                 ", practical=" + practical +
+                ", Examen='" + Examen + '\'' +
+                ", SetOff='" + SetOff + '\'' +
                 '}';
     }
-
-    enum asessmentType{
-        EXAM,
-        SETOFF
     }
 
-}
+

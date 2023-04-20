@@ -13,6 +13,12 @@ public class Chair {
         this.shortNameChair = shortNameChair;
     }
 
+    public Chair(Long id, String nameChair, String shortNameChair) {
+        this.id = id;
+        this.nameChair = nameChair;
+        this.shortNameChair = shortNameChair;
+    }
+
 
     public Long getId() {
         return id;
