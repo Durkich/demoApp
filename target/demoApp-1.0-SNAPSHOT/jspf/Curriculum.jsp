@@ -2,13 +2,13 @@
 <%@ page import="java.util.Date" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    Curriculum curriculum1 = new Curriculum(1l,2023, "Специальность 1", "Квалификация1", "Очная", "План 1", 1);
-    Curriculum curriculum2 = new Curriculum(2l,2023, "Специальность 2", "Квалификация2", "Очная", "План 2", 1);
-    Curriculum curriculum3 = new Curriculum(3l,2023, "Специальность 3", "Квалификация3", "Очная", "План 3", 1);
-    Curriculum[] curriculums = new Curriculum[]{curriculum1,curriculum2,curriculum3};
-    pageContext.setAttribute("curriculums",curriculums);
-%>
+<%--<%--%>
+<%--    Curriculum curriculum1 = new Curriculum(1l,2023, "Специальность 1", "Квалификация1", "Очная", "План 1", 1);--%>
+<%--    Curriculum curriculum2 = new Curriculum(2l,2023, "Специальность 2", "Квалификация2", "Очная", "План 2", 1);--%>
+<%--    Curriculum curriculum3 = new Curriculum(3l,2023, "Специальность 3", "Квалификация3", "Очная", "План 3", 1);--%>
+<%--    Curriculum[] curriculums = new Curriculum[]{curriculum1,curriculum2,curriculum3};--%>
+<%--    pageContext.setAttribute("curriculums",curriculums);--%>
+<%--%>--%>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -37,14 +37,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="cir" items="${curriculums}">
+                <c:forEach var="cir" items="${curricula}">
                     <tr>
                         <td>${cir.getId()}</td>
                         <td>${cir.getAcademicYear()}</td>
                         <td>${cir.getSpeciality()}</td>
-                        <td>${cir.getQuialification()}</td>
+                        <td>${cir.getQualification()}</td>
                         <td>${cir.getFormEducation()}</td>
-                        <td>${cir.getNameCircullum()}</td>
+                        <td>${cir.getNameCurriculum()}</td>
                         <td>${cir.getCourse()}</td>
                     </tr>
                 </c:forEach>

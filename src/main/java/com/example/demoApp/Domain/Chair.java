@@ -2,16 +2,11 @@ package com.example.demoApp.Domain;
 
 public class Chair {
     private Long id;
-    private Long idFaculty;
+    private Faculty faculty;
     private String nameChair;
     private String shortNameChair;
 
-    public Chair(Long id, Long idFaculty, String nameChair, String shortNameChair) {
-        this.id = id;
-        this.idFaculty = idFaculty;
-        this.nameChair = nameChair;
-        this.shortNameChair = shortNameChair;
-    }
+
 
     public Chair(Long id, String nameChair, String shortNameChair) {
         this.id = id;
@@ -28,13 +23,6 @@ public class Chair {
         this.id = id;
     }
 
-    public Long getIdFaculty() {
-        return idFaculty;
-    }
-
-    public void setIdFaculty(Long idFaculty) {
-        this.idFaculty = idFaculty;
-    }
 
     public String getNameChair() {
         return nameChair;
@@ -52,11 +40,20 @@ public class Chair {
         this.shortNameChair = shortNameChair;
     }
 
+
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }
+
     @Override
     public String toString() {
         return "Chair{" +
                 "id=" + id +
-                ", idFaculty=" + idFaculty +
+                ", faculty=" + faculty +
                 ", nameChair='" + nameChair + '\'' +
                 ", shortNameChair='" + shortNameChair + '\'' +
                 '}';

@@ -4,18 +4,17 @@ public class Discipline {
 
 
     private Long id;
-    private Long idChair;
-    private Long idCirriculum;
+    private Chair chair;
+    private Curriculum curriculum;
     private String nameDiscipline;
     private int course;
     private int semester;
     private int lecture;
     private int laboratory;
     private int practical;
-    private String Examen;
-    private String SetOff;
+    private DisciplineType disciplineType;
 
-    public Discipline(Long id, String nameDiscipline, int course, int semester, int lecture, int laboratory, int practical, String examen, String setOff) {
+    public Discipline(Long id, String nameDiscipline, int course, int semester, int lecture, int laboratory, int practical, DisciplineType disciplineType) {
         this.id = id;
         this.nameDiscipline = nameDiscipline;
         this.course = course;
@@ -23,22 +22,7 @@ public class Discipline {
         this.lecture = lecture;
         this.laboratory = laboratory;
         this.practical = practical;
-        Examen = examen;
-        SetOff = setOff;
-    }
-
-    public Discipline(Long id, Long idChair, Long idCirriculum, String nameDiscipline, int course, int semester, int lecture, int laboratory, int practical, String examen, String setOff) {
-        this.id = id;
-        this.idChair = idChair;
-        this.idCirriculum = idCirriculum;
-        this.nameDiscipline = nameDiscipline;
-        this.course = course;
-        this.semester = semester;
-        this.lecture = lecture;
-        this.laboratory = laboratory;
-        this.practical = practical;
-        Examen = examen;
-        SetOff = setOff;
+        this.disciplineType = disciplineType;
     }
 
 
@@ -49,23 +33,21 @@ public class Discipline {
     public void setId(Long id) {
         this.id = id;
     }
-
-    public Long getIdChair() {
-        return idChair;
+    public Chair getChair() {
+        return chair;
     }
 
-    public void setIdChair(Long idChair) {
-        this.idChair = idChair;
+    public void setChair(Chair chair) {
+        this.chair = chair;
     }
 
-    public Long getIdCirriculum() {
-        return idCirriculum;
+    public Curriculum getCurriculum() {
+        return curriculum;
     }
 
-    public void setIdCirriculum(Long idCirriculum) {
-        this.idCirriculum = idCirriculum;
+    public void setCurriculum(Curriculum curriculum) {
+        this.curriculum = curriculum;
     }
-
     public String getNameDiscipline() {
         return nameDiscipline;
     }
@@ -114,38 +96,34 @@ public class Discipline {
         this.practical = practical;
     }
 
-
-    public String getExamen() {
-        return Examen;
+    public DisciplineType getDisciplineType() {
+        return disciplineType;
     }
 
-    public void setExamen(String examen) {
-        Examen = examen;
-    }
-
-    public String getSetOff() {
-        return SetOff;
-    }
-
-    public void setSetOff(String setOff) {
-        SetOff = setOff;
+    public void setDisciplineType(DisciplineType disciplineType) {
+        this.disciplineType = disciplineType;
     }
 
     @Override
     public String toString() {
         return "Discipline{" +
                 "id=" + id +
-                ", idChair=" + idChair +
-                ", idCirriculum=" + idCirriculum +
+                ", chair=" + chair +
+                ", curriculum=" + curriculum +
                 ", nameDiscipline='" + nameDiscipline + '\'' +
                 ", course=" + course +
                 ", semester=" + semester +
                 ", lecture=" + lecture +
                 ", laboratory=" + laboratory +
                 ", practical=" + practical +
-                ", Examen='" + Examen + '\'' +
-                ", SetOff='" + SetOff + '\'' +
+                ", disciplineType=" + disciplineType +
                 '}';
+    }
+
+
+    public enum DisciplineType {
+        Экзамен,
+        Зачет,
     }
     }
 

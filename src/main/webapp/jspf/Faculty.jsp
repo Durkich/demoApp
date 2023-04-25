@@ -1,13 +1,13 @@
 <%@ page import="com.example.demoApp.Domain.Faculty" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    Faculty Faculty1 = new Faculty(1L, "Факультет1", "Факулт1");
-    Faculty Faculty2 = new Faculty(2L, "Факультет2", "Факулт2");
-    Faculty Faculty3= new Faculty(3L, "Факультет3", "Факулт3");
-    Faculty[] facs = new Faculty[]{Faculty1,Faculty2,Faculty3};
-    pageContext.setAttribute("facs",facs);
-%>
+<%--<%--%>
+<%--    Faculty Faculty1 = new Faculty(1L, "Факультет1", "Факулт1");--%>
+<%--    Faculty Faculty2 = new Faculty(2L, "Факультет2", "Факулт2");--%>
+<%--    Faculty Faculty3= new Faculty(3L, "Факультет3", "Факулт3");--%>
+<%--    Faculty[] facs = new Faculty[]{Faculty1,Faculty2,Faculty3};--%>
+<%--    pageContext.setAttribute("facs",facs);--%>
+<%--%>--%>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -32,7 +32,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="fac" items="${facs}">
+                <c:forEach var="fac" items="${faculties}">
                     <tr>
                         <td>${fac.getId()}</td>
                         <td>${fac.getNameFaculty()}</td>

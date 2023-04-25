@@ -1,13 +1,13 @@
 <%@ page import="com.example.demoApp.Domain.Chair" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-  Chair chair1 = new Chair(1l,"Кафедра 1","Каф 1");
-  Chair chair2 = new Chair(2l,"Кафедра 2","Каф 2");
-  Chair chair3 = new Chair(3l,"Кафедра 3","Каф 3");
-  Chair[] chairs = new Chair[]{chair1,chair2,chair3};
-  pageContext.setAttribute("chairs",chairs);
-%>
+<%--<%--%>
+<%--  Chair chair1 = new Chair(1l,"Кафедра 1","Каф 1");--%>
+<%--  Chair chair2 = new Chair(2l,"Кафедра 2","Каф 2");--%>
+<%--  Chair chair3 = new Chair(3l,"Кафедра 3","Каф 3");--%>
+<%--  Chair[] chairs = new Chair[]{chair1,chair2,chair3};--%>
+<%--  pageContext.setAttribute("chairs",chairs);--%>
+<%--%>--%>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -22,7 +22,7 @@
 <div id="main">
     <section>
         <aside class="leftAside">
-            <h3>Список факультетов</h3>
+            <h3>Кафедры</h3>
             <table>
                 <thead>
                 <tr>

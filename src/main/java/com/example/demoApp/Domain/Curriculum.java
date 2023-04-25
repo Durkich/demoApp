@@ -5,24 +5,24 @@ public class Curriculum {
     private Long id;
     private int academicYear;
     private String speciality;
-    private String quialification;
+    private String qualification;
     private String formEducation;
-    private String nameCircullum;
+    private String nameCurriculum;
     private int course;
 
     public Curriculum(Long id,
                       int academicYear,
                       String speciality,
-                      String quialification,
+                      String qualification,
                       String formEducation,
-                      String nameCircullum,
+                      String nameCurriculum,
                       int course) {
         this.id = id;
         this.academicYear = academicYear;
         this.speciality = speciality;
-        this.quialification = quialification;
+        this.qualification = qualification;
         this.formEducation = formEducation;
-        this.nameCircullum = nameCircullum;
+        this.nameCurriculum = nameCurriculum;
         this.course = course;
     }
 
@@ -42,12 +42,12 @@ public class Curriculum {
         this.speciality = speciality;
     }
 
-    public String getQuialification() {
-        return quialification;
+    public String getQualification() {
+        return qualification;
     }
 
-    public void setQuialification(String quialification) {
-        this.quialification = quialification;
+    public void setQualification(String qualification) {
+        this.qualification = qualification;
     }
 
     public String getFormEducation() {
@@ -58,12 +58,12 @@ public class Curriculum {
         this.formEducation = formEducation;
     }
 
-    public String getNameCircullum() {
-        return nameCircullum;
+    public String getNameCurriculum() {
+        return nameCurriculum;
     }
 
-    public void setNameCircullum(String nameCircullum) {
-        this.nameCircullum = nameCircullum;
+    public void setNameCurriculum(String nameCurriculum) {
+        this.nameCurriculum = nameCurriculum;
     }
 
     public int getCourse() {
@@ -88,9 +88,9 @@ public class Curriculum {
                 "id=" + id +
                 ", academicYear=" + academicYear +
                 ", speciality='" + speciality + '\'' +
-                ", quialification='" + quialification + '\'' +
+                ", quialification='" + qualification + '\'' +
                 ", formEducation='" + formEducation + '\'' +
-                ", nameCircullum='" + nameCircullum + '\'' +
+                ", nameCircullum='" + nameCurriculum + '\'' +
                 ", course='" + course + '\'' +
                 '}';
     }

@@ -3,13 +3,13 @@
 <%@ page import="com.example.demoApp.Domain.Discipline" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    Discipline discipline1 = new Discipline(1l, "Дисциплина 1",1,1,1,1,1,"Экзамен1", "Зачет1");
-    Discipline discipline2 = new Discipline(2l, "Дисциплина 2",2,2,2,2,2,"Экзамен2", "Зачет2");
-    Discipline discipline3 = new Discipline(2l, "Дисциплина 3",3,3,3,3,3,"Экзамен3", "Зачет3");
-    Discipline[] disciplines = new Discipline[]{discipline1, discipline2, discipline3};
-    pageContext.setAttribute("disciplines",disciplines);
-%>
+<%--<%--%>
+<%--    Discipline discipline1 = new Discipline(1l, "Дисциплина 1",1,1,1,1,1, Discipline.DisciplineType.Экзамен);--%>
+<%--    Discipline discipline2 = new Discipline(2l, "Дисциплина 2",2,2,2,2,2, Discipline.DisciplineType.Зачет);--%>
+<%--    Discipline discipline3 = new Discipline(2l, "Дисциплина 3",3,3,3,3,3, Discipline.DisciplineType.Зачет);--%>
+<%--    Discipline[] disciplines = new Discipline[]{discipline1, discipline2, discipline3};--%>
+<%--    pageContext.setAttribute("disciplines",disciplines);--%>
+<%--%>--%>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -24,7 +24,7 @@
 <div id="main">
     <section>
         <aside class="leftAside">
-            <h3>Список учебных планов</h3>
+            <h3>Список Дисциплин</h3>
             <table>
                 <thead>
                 <tr>
@@ -35,8 +35,7 @@
                     <th scope="col">Кол-во Лекций</th>
                     <th scope="col">Кол-во Лаб. занятий</th>
                     <th scope="col">Кол-во Практических занятий</th>
-                    <th scope="col">Экзамен</th>
-                    <th scope="col">Зачет</th>
+                    <th scope="col">Тип аттестации</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -49,8 +48,7 @@
                         <td>${discipline.getLecture()}</td>
                         <td>${discipline.getLaboratory()}</td>
                         <td>${discipline.getPractical()}</td>
-                        <td>${discipline.getExamen()}</td>
-                        <td>${discipline.getSetOff()}</td>
+                        <td>${discipline.getDisciplineType()}</td>
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -105,22 +103,11 @@
                 </form>
                 <form method="POST" action="">
                     <p>
-                        <label >Экзамен
-                            <input type="text" name="Examen" />
+                        <label >Тип аттестации
+                            <input type="" name="disciplineType" />
                         </label>
                     </p>
                 </form>
-                <form method="POST" action="">
-                    <p>
-                        <label >Зачет
-                            <input type="text" name="setOff" />
-                        </label>
-                    </p>
-                </form>
-                <form method="POST" action="">
-                <p>
-                    <button type="submit">Добавить</button>
-                </p>
             </div>
         </article>
     </section>
