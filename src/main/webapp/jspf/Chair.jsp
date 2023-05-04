@@ -54,16 +54,16 @@
                 <form method="POST" action="">
                     <p>
                         <label>Наименование Кафедры
-                            <input type="text" name="nameFaculty" />
+                            <input type="text" name="nameChair" />
                         </label>
                     </p>
                     <p>
                         <label for>Краткое Наименование Кафедры
-                            <input type="text" name="nameShortFaculty" />
+                            <input type="text" name="nameShortChair" />
                         </label>
                     </p>
                     <label>Факультет
-                        <select name="type">
+                        <select name="faculty">
                             <option disabled>Выберите факультет</option>
                             <c:forEach var="fac" items="${facultyNames}">
                                 <option>

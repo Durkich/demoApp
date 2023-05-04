@@ -15,11 +15,17 @@ public class ReadData {
 
         EmpConnBuilder builder = new EmpConnBuilder();
         try (Connection connection = builder.getConnection()){
-            Statement statement = connection.createStatement();
+            Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet resultSet = statement.executeQuery(query);
             return resultSet;
         }
     };
+
+    public Long generateId(String tablename) throws SQLException{
+        ResultSet resultSet = getData(tablename);
+        resultSet.last();
+        return resultSet.getLong("id");
+    }
 
     public ArrayList<Faculty> FillFaculty() {
         ArrayList<Faculty> faculties = new ArrayList<Faculty>();
@@ -114,6 +120,30 @@ public class ReadData {
     public <T extends IFinder> T findById(ArrayList<T> list, Long id) {
         for (T item : list) {
             if (item.getId().equals(id)) {
+                return item;
+            }
+        }
+        return null;
+    }
+    public Faculty findByNameFaculty (ArrayList<Faculty> list, String name) {
+        for (Faculty item : list) {
+            if (item.getNameFaculty().equals(name)) {
+                return item;
+            }
+        }
+        return null;
+    }
+    public Chair findByNameChair (ArrayList<Chair> list, String name) {
+        for (Chair item : list) {
+            if (item.getNameChair().equals(name)) {
+                return item;
+            }
+        }
+        return null;
+    }
+    public Curriculum findByNameCurriculum (ArrayList<Curriculum> curricula, String Name){
+        for (Curriculum item:curricula){
+            if(item.getNameCurriculum().equals(Name)){
                 return item;
             }
         }

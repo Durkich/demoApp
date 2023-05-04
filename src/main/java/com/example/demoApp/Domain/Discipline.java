@@ -1,5 +1,12 @@
 package com.example.demoApp.Domain;
 
+import com.example.demoApp.dao.EmpConnBuilder;
+import com.example.demoApp.dao.ReadData;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 public class Discipline implements IFinder {
 
 
@@ -27,6 +34,45 @@ public class Discipline implements IFinder {
         this.curriculum = curriculum;
     }
 
+    public Discipline(String nameDiscipline, int course, int semester, int lecture, int laboratory, int practical, DisciplineType disciplineType, Chair chair, Curriculum curriculum) throws SQLException {
+        ReadData data = new ReadData();
+        this.id = data.generateId("Discipline")+1;
+        this.nameDiscipline = nameDiscipline;
+        this.course = course;
+        this.semester = semester;
+        this.lecture = lecture;
+        this.laboratory = laboratory;
+        this.practical = practical;
+        this.disciplineType = disciplineType;
+        this.chair = chair;
+        this.curriculum = curriculum;
+    }
+
+
+    public boolean insert(){
+        String insertFaculty = "INSERT INTO public.\"Discipline\" VALUES (?, ?, ?,?,?,?,?,?,?,?)";
+        EmpConnBuilder builder = new EmpConnBuilder();
+        try {
+            Connection connection = builder.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(insertFaculty);
+            preparedStatement.setLong(1, this.id);
+            preparedStatement.setLong(2,this.chair.getId());
+            preparedStatement.setLong(3,this.curriculum.getId());
+            preparedStatement.setString(4, this.nameDiscipline);
+            preparedStatement.setInt(5, this.course);
+            preparedStatement.setInt(6, this.semester);
+            preparedStatement.setInt(7, this.lecture);
+            preparedStatement.setInt(8, this.laboratory);
+            preparedStatement.setInt(9, this.practical);
+            preparedStatement.setString(10, String.valueOf(this.disciplineType));
+            preparedStatement.executeUpdate();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+    }
 
     public Long getId() {
         return id;

@@ -97,7 +97,7 @@
                         </label>
                     </p>
                 <label>Тип аттестация
-                    <select name="type">
+                    <select name="disciplinesType">
                         <option disabled>Выберите Тип аттестация</option>
                         <c:forEach var="disciplineType" items="${disciplinesType}">
                             <option>
@@ -108,7 +108,7 @@
                     <p>
                 </label>
                     <label>Кафедра
-                        <select name="type">
+                        <select name="chairName">
                             <option disabled>Выберите кафедру</option>
                             <c:forEach var="chairName" items="${chairNames}">
                                 <option>
@@ -119,7 +119,7 @@
                     </label>
                     </p>
                     <label>Учебный план
-                        <select name="type">
+                        <select name="curriculumName">
                             <option disabled>Выберите Учебный план</option>
                             <c:forEach var="curriculumName" items="${curriculumNames}">
                                 <option>
@@ -128,6 +128,9 @@
                             </c:forEach>
                         </select>
                     </label>
+                    <p>
+                        <button type="submit">Добавить</button>
+                    </p>
                 </form>
             </div>
         </article>

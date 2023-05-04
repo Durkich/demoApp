@@ -74,13 +74,18 @@
                         </label>
                     </p>
                     <p>
+                        <label>Форма обучения
+                            <input type="text" name="formEducation" />
+                        </label>
+                    </p>
+                    <p>
                         <label>Имя плана
                             <input type="text" name="NameCircullum" />
                         </label>
                     </p>
                     <p>
                         <label >Курс
-                            <input type="text" name="Course" />
+                            <input type="number" name="Course" />
                         </label>
                     </p>
                     <p>

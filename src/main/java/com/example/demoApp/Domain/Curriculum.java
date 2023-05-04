@@ -1,6 +1,13 @@
 package com.example.demoApp.Domain;
 
 
+import com.example.demoApp.dao.EmpConnBuilder;
+import com.example.demoApp.dao.ReadData;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 public class Curriculum implements IFinder {
     private Long id;
     private int academicYear;
@@ -24,6 +31,38 @@ public class Curriculum implements IFinder {
         this.formEducation = formEducation;
         this.nameCurriculum = nameCurriculum;
         this.course = course;
+    }
+
+    public Curriculum(int academicYear, String speciality, String qualification, String formEducation, String nameCurriculum, int course) throws SQLException {
+        ReadData data = new ReadData();
+        this.id = data.generateId("Curriculum")+1;
+        this.academicYear = academicYear;
+        this.speciality = speciality;
+        this.qualification = qualification;
+        this.formEducation = formEducation;
+        this.nameCurriculum = nameCurriculum;
+        this.course = course;
+    }
+    public boolean insert(){
+        String insertFaculty = "INSERT INTO public.\"Curriculum\" VALUES (?, ?, ?,?,?,?,?)";
+        EmpConnBuilder builder = new EmpConnBuilder();
+        try {
+            Connection connection = builder.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(insertFaculty);
+            preparedStatement.setLong(1, this.id);
+            preparedStatement.setInt(2, this.academicYear);
+            preparedStatement.setString(3, this.speciality);
+            preparedStatement.setString(4, this.qualification);
+            preparedStatement.setString(5, this.formEducation);
+            preparedStatement.setString(6, this.nameCurriculum);
+            preparedStatement.setInt(7, this.course);
+            preparedStatement.executeUpdate();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
     }
 
     public int getAcademicYear() {
