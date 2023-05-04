@@ -1,6 +1,6 @@
 package com.example.demoApp.Domain;
 
-public class Faculty {
+public class Faculty implements IFinder {
     private Long id;
     private String NameFaculty;
     private String ShortNameFaculty;

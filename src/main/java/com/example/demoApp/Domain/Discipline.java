@@ -1,11 +1,9 @@
 package com.example.demoApp.Domain;
 
-public class Discipline {
+public class Discipline implements IFinder {
 
 
     private Long id;
-    private Chair chair;
-    private Curriculum curriculum;
     private String nameDiscipline;
     private int course;
     private int semester;
@@ -13,8 +11,10 @@ public class Discipline {
     private int laboratory;
     private int practical;
     private DisciplineType disciplineType;
+    private Chair chair;
+    private Curriculum curriculum;
 
-    public Discipline(Long id, String nameDiscipline, int course, int semester, int lecture, int laboratory, int practical, DisciplineType disciplineType) {
+    public Discipline(Long id, String nameDiscipline, int course, int semester, int lecture, int laboratory, int practical, DisciplineType disciplineType, Chair chair, Curriculum curriculum) {
         this.id = id;
         this.nameDiscipline = nameDiscipline;
         this.course = course;
@@ -23,6 +23,8 @@ public class Discipline {
         this.laboratory = laboratory;
         this.practical = practical;
         this.disciplineType = disciplineType;
+        this.chair = chair;
+        this.curriculum = curriculum;
     }
 
 
@@ -103,6 +105,9 @@ public class Discipline {
     public void setDisciplineType(DisciplineType disciplineType) {
         this.disciplineType = disciplineType;
     }
+
+    public String getNameChair(){return chair.getNameChair();}
+    public String getNameCurriculum(){return curriculum.getNameCurriculum();}
 
     @Override
     public String toString() {

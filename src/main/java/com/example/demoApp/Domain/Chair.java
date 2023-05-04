@@ -1,6 +1,6 @@
 package com.example.demoApp.Domain;
 
-public class Chair {
+public class Chair implements IFinder {
     private Long id;
     private Faculty faculty;
     private String nameChair;
@@ -10,6 +10,13 @@ public class Chair {
 
     public Chair(Long id, String nameChair, String shortNameChair) {
         this.id = id;
+        this.nameChair = nameChair;
+        this.shortNameChair = shortNameChair;
+    }
+
+    public Chair(Long id, Faculty faculty, String nameChair, String shortNameChair) {
+        this.id = id;
+        this.faculty = faculty;
         this.nameChair = nameChair;
         this.shortNameChair = shortNameChair;
     }
@@ -44,6 +51,8 @@ public class Chair {
     public Faculty getFaculty() {
         return faculty;
     }
+
+    public String getFacultyName(){return faculty.getNameFaculty();}
 
     public void setFaculty(Faculty faculty) {
         this.faculty = faculty;

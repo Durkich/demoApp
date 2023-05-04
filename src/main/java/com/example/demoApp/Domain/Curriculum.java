@@ -1,7 +1,7 @@
 package com.example.demoApp.Domain;
 
 
-public class Curriculum {
+public class Curriculum implements IFinder {
     private Long id;
     private int academicYear;
     private String speciality;

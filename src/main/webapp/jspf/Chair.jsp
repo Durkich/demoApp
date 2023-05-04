@@ -20,15 +20,18 @@
 <body>
 <jsp:include page="/jspf/header.jsp" />
 <div id="main">
-    <section>
+    <div class="sections">
+        <section class="list-section">
         <aside class="leftAside">
             <h3>Кафедры</h3>
-            <table>
+            <table class="entity-list">
                 <thead>
                 <tr>
                     <th scope="col">Код</th>
                     <th scope="col">Полное наименование</th>
                     <th scope="col">Краткое наименование</th>
+                    <th scope="col">Факультет</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -37,13 +40,14 @@
                         <td>${chair.getId()}</td>
                         <td>${chair.getNameChair()}</td>
                         <td>${chair.getShortNameChair()}</td>
+                        <td>${chair.getFacultyName()}</td>
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
         </aside>
     </section>
-    <section>
+        <section class="add-section">
         <article>
             <h3>Данные о кафедре</h3>
             <div class="text-article">
@@ -53,17 +57,25 @@
                             <input type="text" name="nameFaculty" />
                         </label>
                     </p>
-                </form>
-                <form method="POST" action="">
                     <p>
                         <label for>Краткое Наименование Кафедры
                             <input type="text" name="nameShortFaculty" />
                         </label>
                     </p>
+                    <label>Факультет
+                        <select name="type">
+                            <option disabled>Выберите факультет</option>
+                            <c:forEach var="fac" items="${facultyNames}">
+                                <option>
+                                        ${fac}
+                                </option>
+                            </c:forEach>
+                        </select>
+                    </label>
+                    <p>
+                        <button type="submit">Добавить</button>
+                    </p>
                 </form>
-                <p>
-                    <button type="submit">Добавить</button>
-                </p>
             </div>
         </article>
     </section>

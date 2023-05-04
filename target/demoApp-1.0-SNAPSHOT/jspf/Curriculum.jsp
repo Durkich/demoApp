@@ -21,10 +21,11 @@
 <body>
 <jsp:include page="/jspf/header.jsp" />
 <div id="main">
-    <section>
+    <div class="sections">
+        <section class="list-section">
         <aside class="leftAside">
             <h3>Список учебных планов</h3>
-            <table>
+            <table class="entity-list">
                 <thead>
                 <tr>
                     <th scope="col">Код</th>
@@ -52,7 +53,7 @@
             </table>
         </aside>
     </section>
-    <section>
+        <section class="add-section">
         <article>
             <h3>Данные о Учебном плане</h3>
             <div class="text-article">
@@ -62,38 +63,30 @@
                             <input type="number" name="academicYear" />
                         </label>
                     </p>
-                </form>
-                <form method="POST" action="">
                     <p>
                         <label> Направление подготовки
                             <input type="text" name="Speciality" />
                         </label>
                     </p>
-                </form>
-                <form method="POST" action="">
                     <p>
                         <label>Квалификация
                             <input type="text" name="Quialification" />
                         </label>
                     </p>
-                </form>
-                <form method="POST" action="">
                     <p>
                         <label>Имя плана
                             <input type="text" name="NameCircullum" />
                         </label>
                     </p>
-                </form>
-                <form method="POST" action="">
                     <p>
                         <label >Курс
                             <input type="text" name="Course" />
                         </label>
                     </p>
+                    <p>
+                        <button type="submit">Добавить</button>
+                    </p>
                 </form>
-                <p>
-                    <button type="submit">Добавить</button>
-                </p>
             </div>
         </article>
     </section>
