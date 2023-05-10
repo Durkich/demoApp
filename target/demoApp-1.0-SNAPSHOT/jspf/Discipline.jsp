@@ -1,15 +1,5 @@
-
-<%@ page import="java.util.Date" %>
-<%@ page import="com.example.demoApp.Domain.Discipline" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--<%--%>
-<%--    Discipline discipline1 = new Discipline(1l, "Дисциплина 1",1,1,1,1,1, Discipline.DisciplineType.Экзамен);--%>
-<%--    Discipline discipline2 = new Discipline(2l, "Дисциплина 2",2,2,2,2,2, Discipline.DisciplineType.Зачет);--%>
-<%--    Discipline discipline3 = new Discipline(2l, "Дисциплина 3",3,3,3,3,3, Discipline.DisciplineType.Зачет);--%>
-<%--    Discipline[] disciplines = new Discipline[]{discipline1, discipline2, discipline3};--%>
-<%--    pageContext.setAttribute("disciplines",disciplines);--%>
-<%--%>--%>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -39,7 +29,8 @@
                     <th scope="col">Тип аттестации</th>
                     <th scope="col">Кафедра</th>
                     <th scope="col">Учебный план</th>
-
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -55,6 +46,8 @@
                         <td>${discipline.getDisciplineType()}</td>
                         <td>${discipline.getNameChair()}</td>
                         <td>${discipline.getNameCurriculum()}</td>
+                        <td> <a href='/delete?id=${discipline.getId()}&tableName=Discipline&redirectPage=Discipline' onclick="return confirm('Удалить выбранную дисциплину?')" style="color: #ff0000">Удалить</a></td>
+                        <td><a href="/EditDiscipline?id=${discipline.id}">Редактировать.</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>

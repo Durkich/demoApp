@@ -1,13 +1,6 @@
 <%@ page import="com.example.demoApp.Domain.Chair" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--<%--%>
-<%--  Chair chair1 = new Chair(1l,"Кафедра 1","Каф 1");--%>
-<%--  Chair chair2 = new Chair(2l,"Кафедра 2","Каф 2");--%>
-<%--  Chair chair3 = new Chair(3l,"Кафедра 3","Каф 3");--%>
-<%--  Chair[] chairs = new Chair[]{chair1,chair2,chair3};--%>
-<%--  pageContext.setAttribute("chairs",chairs);--%>
-<%--%>--%>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -31,7 +24,8 @@
                     <th scope="col">Полное наименование</th>
                     <th scope="col">Краткое наименование</th>
                     <th scope="col">Факультет</th>
-
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -41,6 +35,8 @@
                         <td>${chair.getNameChair()}</td>
                         <td>${chair.getShortNameChair()}</td>
                         <td>${chair.getFacultyName()}</td>
+                        <td> <a href='/delete?id=${chair.getId()}&tableName=Chair&redirectPage=Chair' onclick="return confirm('Удалить выбранную кафедру?')" style="color: #ff0000">Удалить</a></td>
+                        <td><a href="/EditChair?id=${chair.id}">Редактировать.</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>

@@ -30,10 +30,28 @@ public class Chair implements IFinder {
 
     public Chair(Faculty faculty, String nameChair, String shortNameChair) throws SQLException {
         ReadData data = new ReadData();
-        this.id = data.generateId("Chair")+1;
+        this.id = data.generateId("Chair");
         this.faculty = faculty;
         this.nameChair = nameChair;
         this.shortNameChair = shortNameChair;
+    }
+    public boolean update(){
+        String insertChair = "UPDATE public.\"Chair\" SET \"idFaculty\"=?, \"nameChair\"=?, \"shortNameChair\"=? where id = ?";
+        EmpConnBuilder builder = new EmpConnBuilder();
+        try {
+            Connection connection = builder.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(insertChair);
+            preparedStatement.setLong(1, this.faculty.getId());
+            preparedStatement.setString(2, this.nameChair);
+            preparedStatement.setString(3, this.shortNameChair);
+            preparedStatement.setLong(4, this.id);
+            preparedStatement.executeUpdate();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
     }
 
     public boolean insert(){

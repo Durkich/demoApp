@@ -2,13 +2,6 @@
 <%@ page import="java.util.Date" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--<%--%>
-<%--    Curriculum curriculum1 = new Curriculum(1l,2023, "Специальность 1", "Квалификация1", "Очная", "План 1", 1);--%>
-<%--    Curriculum curriculum2 = new Curriculum(2l,2023, "Специальность 2", "Квалификация2", "Очная", "План 2", 1);--%>
-<%--    Curriculum curriculum3 = new Curriculum(3l,2023, "Специальность 3", "Квалификация3", "Очная", "План 3", 1);--%>
-<%--    Curriculum[] curriculums = new Curriculum[]{curriculum1,curriculum2,curriculum3};--%>
-<%--    pageContext.setAttribute("curriculums",curriculums);--%>
-<%--%>--%>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -35,6 +28,8 @@
                     <th scope="col">Форма обучения</th>
                     <th scope="col">Имя плана</th>
                     <th scope="col">Курс</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -47,6 +42,8 @@
                         <td>${cir.getFormEducation()}</td>
                         <td>${cir.getNameCurriculum()}</td>
                         <td>${cir.getCourse()}</td>
+                        <td> <a href='/delete?id=${cir.getId()}&tableName=Curriculum&redirectPage=Curriculum' onclick="return confirm('Удалить выбранный учебный план?')" style="color: #ff0000">Удалить</a></td>
+                        <td><a href="/EditCurriculum?id=${cir.id}">Редактировать.</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>

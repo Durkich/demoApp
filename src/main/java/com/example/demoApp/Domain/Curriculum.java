@@ -35,7 +35,7 @@ public class Curriculum implements IFinder {
 
     public Curriculum(int academicYear, String speciality, String qualification, String formEducation, String nameCurriculum, int course) throws SQLException {
         ReadData data = new ReadData();
-        this.id = data.generateId("Curriculum")+1;
+        this.id = data.generateId("Curriculum");
         this.academicYear = academicYear;
         this.speciality = speciality;
         this.qualification = qualification;
@@ -43,6 +43,28 @@ public class Curriculum implements IFinder {
         this.nameCurriculum = nameCurriculum;
         this.course = course;
     }
+    public boolean update(){
+        String insertFaculty = "UPDATE public.\"Curriculum\" SET \"academicYear\"=?, speciality=?, qualification=?, \"formEducation\"=?, \"nameCurriculum\"=?, course=?  where id = ?";
+        EmpConnBuilder builder = new EmpConnBuilder();
+        try {
+            Connection connection = builder.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(insertFaculty);
+            preparedStatement.setInt(1, this.academicYear);
+            preparedStatement.setString(2, this.speciality);
+            preparedStatement.setString(3, this.qualification);
+            preparedStatement.setString(4, this.formEducation);
+            preparedStatement.setString(5, this.nameCurriculum);
+            preparedStatement.setInt(6, this.course);
+            preparedStatement.setLong(7, this.id);
+            preparedStatement.executeUpdate();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+    }
+
     public boolean insert(){
         String insertFaculty = "INSERT INTO public.\"Curriculum\" VALUES (?, ?, ?,?,?,?,?)";
         EmpConnBuilder builder = new EmpConnBuilder();

@@ -1,13 +1,6 @@
 <%@ page import="com.example.demoApp.Domain.Faculty" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--<%--%>
-<%--    Faculty Faculty1 = new Faculty(1L, "Факультет1", "Факулт1");--%>
-<%--    Faculty Faculty2 = new Faculty(2L, "Факультет2", "Факулт2");--%>
-<%--    Faculty Faculty3= new Faculty(3L, "Факультет3", "Факулт3");--%>
-<%--    Faculty[] facs = new Faculty[]{Faculty1,Faculty2,Faculty3};--%>
-<%--    pageContext.setAttribute("facs",facs);--%>
-<%--%>--%>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -30,6 +23,8 @@
                     <th scope="col">Код</th>
                     <th scope="col">Полное наименование</th>
                     <th scope="col">Краткое наименование</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -38,6 +33,8 @@
                         <td>${fac.getId()}</td>
                         <td>${fac.getNameFaculty()}</td>
                         <td>${fac.getShortNameFaculty()}</td>
+                        <td> <a href='/delete?id=${fac.getId()}&tableName=Faculty&redirectPage=Faculty' onclick="return confirm('Удалить выбранный факультет?')" style="color: #ff0000">Удалить</a></td>
+                        <td><a href="/EditFaculty?id=${fac.id}">Редактировать.</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>

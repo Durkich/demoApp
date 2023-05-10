@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class ReadData {
 
     public ResultSet getData(String TableName) throws SQLException {
-        String query = "SELECT * FROM public.\"" + TableName + "\"";
+        String query = "SELECT * FROM public.\"" + TableName + "\" ORDER BY id ASC";
 
         EmpConnBuilder builder = new EmpConnBuilder();
         try (Connection connection = builder.getConnection()){
@@ -20,11 +20,24 @@ public class ReadData {
             return resultSet;
         }
     };
+    public ResultSet deleteData(String TableName,long id ) throws SQLException {
+        String query = "DELETE FROM public.\"" + TableName + "\" where id =" +id+"";
+
+        EmpConnBuilder builder = new EmpConnBuilder();
+        try (Connection connection = builder.getConnection()){
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            return resultSet;
+        }
+    };
 
     public Long generateId(String tablename) throws SQLException{
         ResultSet resultSet = getData(tablename);
-        resultSet.last();
-        return resultSet.getLong("id");
+        if (resultSet.first() !=false){
+            resultSet.last();
+            return resultSet.getLong("id")+1;
+        }
+        return 1l;
     }
 
     public ArrayList<Faculty> FillFaculty() {
@@ -127,7 +140,7 @@ public class ReadData {
     }
     public Faculty findByNameFaculty (ArrayList<Faculty> list, String name) {
         for (Faculty item : list) {
-            if (item.getNameFaculty().equals(name)) {
+            if (item.getNameFaculty().contains(name)) {
                 return item;
             }
         }
@@ -135,7 +148,7 @@ public class ReadData {
     }
     public Chair findByNameChair (ArrayList<Chair> list, String name) {
         for (Chair item : list) {
-            if (item.getNameChair().equals(name)) {
+            if (item.getNameChair().contains(name)) {
                 return item;
             }
         }
@@ -143,7 +156,7 @@ public class ReadData {
     }
     public Curriculum findByNameCurriculum (ArrayList<Curriculum> curricula, String Name){
         for (Curriculum item:curricula){
-            if(item.getNameCurriculum().equals(Name)){
+            if(item.getNameCurriculum().contains(Name)){
                 return item;
             }
         }

@@ -28,7 +28,7 @@ public class CurriculumServlet extends HttpServlet {
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             ReadData data = new ReadData();
-        ArrayList<Curriculum> curricula = data.FillCurrirulum();
+            ArrayList<Curriculum> curricula = data.FillCurrirulum();
             request.setAttribute("curricula",curricula);
             userPath = request.getServletPath();
             if("/Curriculum".equals(userPath)){

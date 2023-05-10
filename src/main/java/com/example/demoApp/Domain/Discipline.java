@@ -36,7 +36,7 @@ public class Discipline implements IFinder {
 
     public Discipline(String nameDiscipline, int course, int semester, int lecture, int laboratory, int practical, DisciplineType disciplineType, Chair chair, Curriculum curriculum) throws SQLException {
         ReadData data = new ReadData();
-        this.id = data.generateId("Discipline")+1;
+        this.id = data.generateId("Discipline");
         this.nameDiscipline = nameDiscipline;
         this.course = course;
         this.semester = semester;
@@ -47,7 +47,30 @@ public class Discipline implements IFinder {
         this.chair = chair;
         this.curriculum = curriculum;
     }
-
+    public boolean update(){
+        String insertFaculty = "UPDATE public.\"Discipline\" SET \"idChair\"=?, \"idCurriculum\"=?, \"nameDiscipline\"=?, course=?, semester=?, lecture=?, labratory=?, practical=?, \"disciplineType\"=? where id = ?";
+        EmpConnBuilder builder = new EmpConnBuilder();
+        try {
+            Connection connection = builder.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(insertFaculty);
+            preparedStatement.setLong(1,this.chair.getId());
+            preparedStatement.setLong(2,this.curriculum.getId());
+            preparedStatement.setString(3, this.nameDiscipline);
+            preparedStatement.setInt(4, this.course);
+            preparedStatement.setInt(5, this.semester);
+            preparedStatement.setInt(6, this.lecture);
+            preparedStatement.setInt(7, this.laboratory);
+            preparedStatement.setInt(8, this.practical);
+            preparedStatement.setString(9, String.valueOf(this.disciplineType));
+            preparedStatement.setLong(10, this.id);
+            preparedStatement.executeUpdate();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+    }
 
     public boolean insert(){
         String insertFaculty = "INSERT INTO public.\"Discipline\" VALUES (?, ?, ?,?,?,?,?,?,?,?)";

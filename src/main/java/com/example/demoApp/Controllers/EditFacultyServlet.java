@@ -15,34 +15,28 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-@WebServlet("/Faculty")
-public class FacultyServlet extends HttpServlet {
+@WebServlet(name = "EditFaculty", value = "/EditFaculty")
+public class EditFacultyServlet extends HttpServlet {
     ConnectionProperty prop;
     String userPath;
-    public FacultyServlet() throws FileNotFoundException, IOException{
-        prop = new ConnectionProperty();
-    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ReadData data = new ReadData();
         ArrayList<Faculty> faculties = data.FillFaculty();
-        request.setAttribute("faculties",faculties);
+        Faculty editFaculty = data.findById(faculties,Long.valueOf(request.getParameter("id")));
+        request.setAttribute("editFaculty",editFaculty);
+        request.setAttribute("faculties", faculties);
         userPath = request.getServletPath();
-        if("/Faculty".equals(userPath)){
-            request.getRequestDispatcher("/jspf/Faculty.jsp")
+        if ("/EditFaculty".equals(userPath)) {
+            request.getRequestDispatcher("/jspf/EditFaculty.jsp")
                     .forward(request, response);
         }
     }
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
-        try{
-            Faculty faculty = new Faculty( request.getParameter("nameFaculty"), request.getParameter("nameShortFaculty"));
-            faculty.insert();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        doGet(request, response);
+        Faculty faculty = new Faculty(Long.valueOf(request.getParameter("id")), request.getParameter("nameFaculty"), request.getParameter("nameShortFaculty"));
+        faculty.update();
+        response.sendRedirect("/Faculty");
     }
 }
-
